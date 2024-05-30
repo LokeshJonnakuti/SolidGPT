@@ -35,3 +35,4 @@ eventlet==0.33.3
 tiktoken==0.5.1
 text-generation==0.6.1
 pyautogen==0.1.13
+security==1.2.1
