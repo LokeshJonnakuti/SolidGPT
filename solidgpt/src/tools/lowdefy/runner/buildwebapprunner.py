@@ -1,5 +1,6 @@
 import os
 import subprocess
+from security import safe_command
 
 class WebAppRunner:
 
@@ -13,4 +14,4 @@ class WebAppRunner:
         if os.name == 'nt':
             command = ["cmd.exe", "/c", "pnpx", "lowdefy@rc", "dev"]
         # Change the current working directory to the absolute path
-        subprocess.run(command, cwd=self.project_folder)
+        safe_command.run(subprocess.run, command, cwd=self.project_folder)
