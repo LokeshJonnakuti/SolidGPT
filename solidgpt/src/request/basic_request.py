@@ -1,6 +1,7 @@
 import requests
 import logging
 from enum import Enum
+from security import safe_requests
 
 class RequestMethod(Enum):
     POST = 1
@@ -25,7 +26,7 @@ class BasicRequest:
     
     def call(self):
         if self.method == RequestMethod.GET:
-            self.response = requests.get(self.url, headers=self.headers, params=self.params)
+            self.response = safe_requests.get(self.url, headers=self.headers, params=self.params)
         elif self.method == RequestMethod.POST:
             self.response = requests.post(self.url, headers=self.headers, json=self.data)
         else:
