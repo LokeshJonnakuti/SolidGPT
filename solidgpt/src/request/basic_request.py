@@ -25,9 +25,9 @@ class BasicRequest:
     
     def call(self):
         if self.method == RequestMethod.GET:
-            self.response = requests.get(self.url, headers=self.headers, params=self.params)
+            self.response = requests.get(self.url, headers=self.headers, params=self.params, timeout=60)
         elif self.method == RequestMethod.POST:
-            self.response = requests.post(self.url, headers=self.headers, json=self.data)
+            self.response = requests.post(self.url, headers=self.headers, json=self.data, timeout=60)
         else:
             raise Exception("Invalid method")
         logging.info(f"Response: {self.response}")
